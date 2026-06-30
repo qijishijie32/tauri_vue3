@@ -1,0 +1,26 @@
+[package]
+name = "tauri_vue3"
+version = "0.1.0"
+description = "Tauri 2 + Vue 3 scaffold"
+authors = ["qijishijie32"]
+edition = "2021"
+
+[lib]
+name = "tauri_vue3_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+tauri-plugin-opener = "2"
+os_info = "3"
+hostname = "0.4"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
